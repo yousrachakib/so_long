@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 22:09:37 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/24 02:45:17 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/24 14:42:56 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,28 @@ void	check_map(char *map)
 			ft_putstr_fd("Error invalid map", 2);
 			exit (1);
 		}
+	}
+}
+
+void	check_ifrectangular(char *map)
+{
+	int	i;
+	int	line_len;
+	int	max_line_len;
+
+	i = 0;
+	line_len = 0;
+	max_line_len = 0;
+	while (map[i])
+	{
+		if (map[i] == '\n')
+		{
+			if (line_len > max_line_len)
+				max_line_len = line_len;
+			line_len = 0;
+		}
+		else
+			line_len++;
+		i++;
 	}
 }
