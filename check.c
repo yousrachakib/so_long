@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 22:09:37 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/24 14:42:56 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/24 15:32:33 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,10 @@ void	check_ifrectangular(char *map)
 		else
 			line_len++;
 		i++;
+	}
+	if (max_line_len != line_len && map[max_line_len] != '\n')
+	{
+		ft_putstr_fd("Error : map not rectangular", 2);
+		exit (1);
 	}
 }
