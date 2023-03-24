@@ -6,19 +6,20 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:57 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/23 22:47:14 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/24 01:52:52 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG
-#define SO_LONG
+# define SO_LONG
 
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
 void	ft_putstr_fd(char *s, int fd);
-int     checkerror(int ac, char **av);
-int     my_strlen(const char *s);
-
+int		checkerror(int ac, char **av);
+int		my_strlen(const char *s);
+void	check_duplicate(char *map);
+void	check_map(char *map);
 #endif
