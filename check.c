@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 22:09:37 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/25 14:56:15 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/25 16:50:28 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	check_duplicate(char *map)
 	counter = 0;
 	while (map[i])
 	{
-		if (map[i] == 'C' || map[i] == 'P' || map[i] == 'E')
+		if (map[i] == 'P' || map[i] == 'E')
 			counter++;
 		i++;
 	}
-	if (counter != 3)
+	if (counter != 2)
 	{
 		ft_putstr_fd("Error Map not valide\n", 2);
 		exit (1);
@@ -36,20 +36,17 @@ void	check_duplicate(char *map)
 void	check_map(char *map)
 {
 	int	i;
-	int	len;
 
 	i = 0;
-	len = ft_strlen(map);
-	while (i < len)
+	while (map[i])
 	{
-		if (map[i] == '1' || map[i] == '0' || map[i] == 'C'
-			|| map[i] == 'P' || map[i] == 'E' || map[i] == '\n')
-			i++;
-		else
+		if (map[i] != '1' || map[i] != '0' || map[i] != 'C'
+			|| map[i] != 'P' || map[i] != 'E' || map[i] != '\n')
 		{
 			ft_putstr_fd("Error invalid map", 2);
 			exit (1);
 		}
+		i++;
 	}
 }
 
@@ -89,11 +86,10 @@ void	check_wall2(char *map)
 
 	start = 0;
 	i = 0;
-	check_wall(map);
-	while (map)
+	while (*map)
 	{
 		pos = newline_pos(map, start);
-		if (map[pos - 1] != '1' || map[pos + 1] != '1')
+		if (map[pos - 1] != '1' && map[pos + 1] != '1' && pos != -1)
 		{
 			ft_putstr_fd("Error : map invalid", 2);
 			exit (1);

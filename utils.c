@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 21:49:53 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/25 14:38:30 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/25 15:09:17 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,5 @@ void	check_wall(char	*map)
 		}
 		len--;
 	}
+	check_wall2(map);
 }
