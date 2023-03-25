@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/24 14:56:39 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:46:49 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ int	main(int ac, char **av)
 	check_map(map);
 	check_duplicate(map);
 	check_ifrectangular(map);
+	check_wall(map);
 }
