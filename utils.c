@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 21:49:53 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/25 13:59:23 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:38:30 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,14 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
-int	newline_pos(char *s)
-{
-	int		i;
 
-	i = 0;
-	while (s[i])
+int	newline_pos(char *s, int pos)
+{
+	while (s[pos])
 	{
-		if (s[i] == '\n')
-			return (i);
-		i++;
+		if (s[pos] == '\n')
+			return (pos);
+		pos++;
 	}
 	return (-1);
 }
@@ -57,7 +55,7 @@ void	check_wall(char	*map)
 {
 	int	i;
 	int	len;
-	int j;
+	int	j;
 
 	len = ft_strlen(map) - 1;
 	j = 0;

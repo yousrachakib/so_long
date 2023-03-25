@@ -6,25 +6,37 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/24 16:46:49 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:19:30 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "so_long.h"
 
-int	my_strcmp(char *s1, char *s2)
+int	checkerror(int ac, char **av)
 {
-	size_t	i;
+	int	i;
+	int	fd;
 
-	i = 0;
-	while (s1[i] || s2[i])
+	if (ac != 2)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		ft_putstr_fd("Error few arguments\n", 2);
+		exit (1);
 	}
-	return (0);
+	fd = open(av[1], O_RDONLY);
+	if (fd < 0)
+	{
+		ft_putstr_fd("Error file not opened\n", 2);
+		exit (1);
+	}
+	i = my_strlen(av[1]) - 1;
+	if (i < 5 || av[1][i] != 'r'
+		|| av[1][i -1] != 'e' || av[1][i - 2] != 'b' || av[1][i - 3] != '.')
+	{
+		ft_putstr_fd("Error wrong filetype\n", 2);
+		exit (1);
+	}
+	return (fd);
 }
 
 int	main(int ac, char **av)
@@ -46,5 +58,5 @@ int	main(int ac, char **av)
 	check_map(map);
 	check_duplicate(map);
 	check_ifrectangular(map);
-	check_wall(map);
+	check_wall2(map);
 }

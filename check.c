@@ -6,38 +6,12 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 22:09:37 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/24 16:21:16 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:56:15 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "so_long.h"
-
-int	checkerror(int ac, char **av)
-{
-	int	i;
-	int	fd;
-
-	if (ac != 2)
-	{
-		ft_putstr_fd("Error few arguments\n", 2);
-		exit (1);
-	}
-	fd = open(av[1], O_RDONLY);
-	if (fd < 0)
-	{
-		ft_putstr_fd("Error file not opened\n", 2);
-		exit (1);
-	}
-	i = my_strlen(av[1]) - 1;
-	if (i < 5 || av[1][i] != 'r'
-		|| av[1][i -1] != 'e' || av[1][i - 2] != 'b' || av[1][i - 3] != '.')
-	{
-		ft_putstr_fd("Error wrong filetype\n", 2);
-		exit (1);
-	}
-	return (fd);
-}
 
 void	check_duplicate(char *map)
 {
@@ -104,5 +78,27 @@ void	check_ifrectangular(char *map)
 	{
 		ft_putstr_fd("Error : map not rectangular", 2);
 		exit (1);
+	}
+}
+
+void	check_wall2(char *map)
+{
+	int	pos;
+	int	i;
+	int	start;
+
+	start = 0;
+	i = 0;
+	check_wall(map);
+	while (map)
+	{
+		pos = newline_pos(map, start);
+		if (map[pos - 1] != '1' || map[pos + 1] != '1')
+		{
+			ft_putstr_fd("Error : map invalid", 2);
+			exit (1);
+		}
+		start = pos;
+		map++;
 	}
 }
