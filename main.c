@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/25 16:53:12 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:28:08 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	checkerror(int ac, char **av)
 		exit (1);
 	}
 	i = my_strlen(av[1]) - 1;
-	if (i < 5 || av[1][i] != 'r'
+	if (i < 4 || av[1][i] != 'r'
 		|| av[1][i -1] != 'e' || av[1][i - 2] != 'b' || av[1][i - 3] != '.')
 	{
 		ft_putstr_fd("Error wrong filetype\n", 2);
@@ -54,6 +54,7 @@ int	main(int ac, char **av)
 		free(line);
 		line = get_next_line(fd);
 	}
+	check_elements(map);
 	check_map(map);
 	check_duplicate(map);
 	check_ifrectangular(map);

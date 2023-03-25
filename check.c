@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 22:09:37 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/25 16:50:28 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:28:38 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,32 @@ void	check_duplicate(char *map)
 	}
 }
 
+void	check_elements(char *map)
+{
+	int	i;
+	int	counter;
+	int	counter1;
+	int	counter2;
+
+	i = 0;
+	while (map[i])
+	{
+		if (map[i] == 'P')
+			counter++;
+		if (map[i] == 'E')
+			counter1++;
+		if (map[i] == 'C')
+			counter2++;
+		i++;
+	}
+	if (counter != 1 && counter1 != 1 && counter2 >= 1)
+	{
+		free(map);
+		ft_putstr_fd("Error invalid map", 2);
+		exit (1);
+	}
+}
+
 void	check_map(char *map)
 {
 	int	i;
@@ -40,13 +66,15 @@ void	check_map(char *map)
 	i = 0;
 	while (map[i])
 	{
-		if (map[i] != '1' || map[i] != '0' || map[i] != 'C'
-			|| map[i] != 'P' || map[i] != 'E' || map[i] != '\n')
+		if (map[i] == '1' || map[i] == '0' || map[i] == 'C'
+			|| map[i] == 'P' || map[i] == 'E' || map[i] == '\n')
+			i++;
+		else
 		{
+			free(map);
 			ft_putstr_fd("Error invalid map", 2);
 			exit (1);
 		}
-		i++;
 	}
 }
 
@@ -73,6 +101,7 @@ void	check_ifrectangular(char *map)
 	}
 	if (max_line_len != line_len)
 	{
+		free(map);
 		ft_putstr_fd("Error : map not rectangular", 2);
 		exit (1);
 	}
@@ -91,6 +120,7 @@ void	check_wall2(char *map)
 		pos = newline_pos(map, start);
 		if (map[pos - 1] != '1' && map[pos + 1] != '1' && pos != -1)
 		{
+			free(map);
 			ft_putstr_fd("Error : map invalid", 2);
 			exit (1);
 		}

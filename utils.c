@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 21:49:53 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/25 15:09:17 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:29:03 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	check_wall(char	*map)
 			j++;
 		else
 		{
+			free(map);
 			ft_putstr_fd("Error : map invalid", 2);
 			exit (1);
 		}
@@ -78,6 +79,7 @@ void	check_wall(char	*map)
 			i--;
 		else
 		{
+			free(map);
 			ft_putstr_fd("Error : map invalid", 2);
 			exit (1);
 		}

@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 16:50:22 by yochakib          #+#    #+#             */
-/*   Updated: 2022/12/08 17:34:26 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:27:36 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (0);
 	str = malloc(sizeof(char) * (ft_strlen(s1)+ft_strlen(s2)+1));
 	if (!str)
-		return (0);
+		exit (1);
 	while (s1[i])
 	{
 		str[i] = s1[i];
@@ -93,7 +93,7 @@ char	*ft_strdup(const char *s)
 		return (NULL);
 	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!str)
-		return (0);
+		exit (1);
 	while (s[i])
 	{
 		str[i] = s[i];
