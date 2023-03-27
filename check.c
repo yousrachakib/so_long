@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 22:09:37 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/25 17:28:38 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/03/27 16:16:17 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ void	check_elements(char *map)
 	int	counter2;
 
 	i = 0;
+	counter = 0;
+	counter1 = 0;
+	counter2 = 0;
 	while (map[i])
 	{
 		if (map[i] == 'P')
