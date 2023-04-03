@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/27 16:11:32 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/03 21:52:34 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,16 @@
 
 void	init_args(t_list *info)
 {
+	info->img_height = 0;
+	info->img_width = 0;
 	info->x = 0;
 	info->y = 0;
+	info->exit = NULL;
+	info->player = NULL;
+	info->collect = NULL;
+	info->space = NULL;
+	info->wall = NULL;
+	info->img = NULL;
 	info->mlx = NULL;
 	info->mlx_win = NULL;
 }
@@ -49,6 +57,8 @@ void	creat_window(char **map, t_list *info)
 	info->x = calcul_width(info->x, map);
 	info->mlx = mlx_init();
 	info->mlx_win = mlx_new_window(info->mlx, info->x*50, info->y*50, "so_long");
+	pointer_image(info);
+	add_image_to_win(map,info);
 	mlx_loop(info->mlx);
 }
 int	checkerror(int ac, char **av)

@@ -4,6 +4,7 @@ SRC = check.c \
 	main.c \
 	split.c \
 	utils.c \
+	window.c \
 
 NAME = so_long
 CC = cc

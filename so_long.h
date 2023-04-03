@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:57 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/27 15:35:28 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/03 21:48:27 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,24 @@
 
 typedef struct t_list
 {
+	int		img_width;
+	int		img_height;
 	int     x;
 	int     y;
+	void	*collect;
+	void	*exit;
+	void	*player;
+	void	*space;
+	void	*wall;
+	void	*img;
 	void    *mlx;
     void    *mlx_win;
 }   t_list;
 
-int	calcul_height(int y,char **map);
-int	calcul_width(int x,char **map);
+void    add_image_to_win(char **map, t_list *info);
+void    pointer_image(t_list    *info);
+int		calcul_height(int y,char **map);
+int		calcul_width(int x,char **map);
 void	creat_window(char **map, t_list *info);
 void	check_elements(char *map);
 void	check_wall2(char *map);
