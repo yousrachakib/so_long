@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:57 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/03 21:48:27 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:14:34 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef struct t_list
     void    *mlx_win;
 }   t_list;
 
-void    add_image_to_win(char **map, t_list *info);
+void    add_to_window(char **map, t_list *info);
+void    put_to_window(char **map, t_list *info, int i, int j);
 void    pointer_image(t_list    *info);
 int		calcul_height(int y,char **map);
 int		calcul_width(int x,char **map);

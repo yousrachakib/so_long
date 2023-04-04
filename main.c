@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/03 21:52:34 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:14:06 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	creat_window(char **map, t_list *info)
 	info->mlx = mlx_init();
 	info->mlx_win = mlx_new_window(info->mlx, info->x*50, info->y*50, "so_long");
 	pointer_image(info);
-	add_image_to_win(map,info);
+	add_to_window(map,info);
 	mlx_loop(info->mlx);
 }
 int	checkerror(int ac, char **av)
