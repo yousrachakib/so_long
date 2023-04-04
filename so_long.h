@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:57 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/04 18:14:34 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/04 23:01:51 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,16 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <mlx.h>
+typedef struct t_pos
+{
+	int		x;
+	int		y;
+}			t_pos;
 
 typedef struct t_list
 {
+	t_pos	player;
+	t_pos	exit;
 	int		img_width;
 	int		img_height;
 	int     x;
@@ -34,6 +41,7 @@ typedef struct t_list
     void    *mlx_win;
 }   t_list;
 
+int	check_exist(char **map, int base);
 void    add_to_window(char **map, t_list *info);
 void    put_to_window(char **map, t_list *info, int i, int j);
 void    pointer_image(t_list    *info);
