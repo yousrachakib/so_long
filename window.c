@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 21:01:15 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/06 16:58:25 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/06 22:11:31 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,23 @@ void    pointer_image(t_list    *info)
         exit (1);
 }
 
-void    add_to_window(char **map, t_list *info)
+int    add_to_window(t_list *info)
 {
     int i;
     int j;
     
     i = 0;
-    while (map[i])
+    while (info->map[i])
     {
         j = 0;
-        while(map[i][j])
+        while(info->map[i][j])
         {
-            put_to_window(map, info, i, j);
+            put_to_window(info->map, info, i, j);
             j += 1;
         }
         i += 1;
     }
+    return (0);
 }
 
 void    put_to_window(char **map, t_list *info,int i, int j)

@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/06 17:50:08 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/06 22:16:12 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,13 @@ int	calcul_height(int y,char **map)
 	return (y);
 }
 
+int	key_code(int key_code)
+{
+	printf("%d\n",key_code);
+	
+	return 0;
+}
+
 void	creat_window(char **map, t_list *info)
 {
 	init_args(info);
@@ -58,7 +65,8 @@ void	creat_window(char **map, t_list *info)
 	info->mlx = mlx_init();
 	info->mlx_win = mlx_new_window(info->mlx, info->x*50, info->y*50, "so_long");
 	pointer_image(info);
-	add_to_window(map,info);
+	mlx_loop_hook(info->mlx , &add_to_window, info);
+	mlx_hook(info->mlx_win, 2, 1L, &key_code, info);
 	mlx_loop(info->mlx);
 }
 int	checkerror(int ac, char **av)

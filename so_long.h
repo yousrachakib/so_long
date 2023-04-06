@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:57 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/06 17:50:54 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/06 22:11:55 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void    check_map_parsing(char  *map);
 void	check_path(t_list *info, int base);
 void	get_cordinates(t_list    *info);
 int		check_exist(char **map, int base);
-void	add_to_window(char **map, t_list *info);
+int		add_to_window(t_list *info);
 void    put_to_window(char **map, t_list *info, int i, int j);
 void    pointer_image(t_list    *info);
 int		calcul_height(int y,char **map);
