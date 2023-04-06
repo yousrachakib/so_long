@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/04 18:14:06 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/06 17:50:08 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,10 @@ int	main(int ac, char **av)
 		line = get_next_line(fd);
 	}
 	info = malloc(sizeof(t_list));
-	check_elements(map);
-	check_map(map);
-	check_duplicate(map);
-	check_ifrectangular(map);
-	check_wall(map);
+	check_map_parsing(map);
+	info->map1D =map;
+	info->map = ft_split(map, '\n');
 	map_2D = ft_split(map, '\n');
+	check_valid_path(info);
 	creat_window(map_2D, info);
 }

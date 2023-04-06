@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkpah.c                                         :+:      :+:    :+:   */
+/*   checkpath.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 22:42:56 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/04 23:05:18 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/06 17:37:08 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	floodfill(char **map, int y, int x, int base)
 {
-	if (map[y][x] != '0' && map[y][x] != 'P' && map[y][x] != 'C'
-		&& map[y][x] != base)
+	if (map[y][x] != '0' && map[y][x] != 'P' && map[y][x] != base
+		&& map[y][x] != 'C')
 		return ;
-	map[y][x] = 'A';
+	map[y][x] = 'X';
 	floodfill(map, y, x + 1, base);
 	floodfill(map, y, x - 1, base);
 	floodfill(map, y + 1, x, base);
 	floodfill(map, y - 1, x, base);
 }
 
-static int	check_exist(char **map, int base)
+int	check_exist(char **map, int base)
 {
 	int	i;
 	int	j;
@@ -46,18 +46,30 @@ static int	check_exist(char **map, int base)
 
 void	check_path(t_list *info, int base)
 {
-	char	**map;
 	int		x;
 	int		y;
+	char **map;
 
-	x = info->x;
-	y = info->y;
+	x = info->player1.x;
+	y = info->player1.y;
+	map = ft_split(info->map1D, '\n');
 	floodfill(map, y, x, base);
+	// while (info->map[i])
+	// {
+	// 	j = 0;
+	// 	while(info->map[i][j])
+	// 	{
+	// 		printf("%c",info->map[i][j]);
+	// 		j++;
+	// 	}
+	// 	printf("\n");
+	// 	i++;
+	// }
+	
 	if (base == 'C')
 		if (check_exist(map, base))
 		{
-        	ft_putstr_fd("ERROR!\nThere is no valid path \
-                    to catch all collectibles.\n", 2);
+        	ft_putstr_fd("ERROR!\nThere is no valid path to catch all collectibles.\n", 2);
             exit (1);
         }
 	if (base == 'E')

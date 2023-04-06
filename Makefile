@@ -5,6 +5,8 @@ SRC = check.c \
 	split.c \
 	utils.c \
 	window.c \
+	position.c \
+	checkpath.c \
 
 NAME = so_long
 CC = cc

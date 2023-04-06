@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:57 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/04 23:01:51 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/06 17:50:54 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef struct t_pos
 
 typedef struct t_list
 {
-	t_pos	player;
-	t_pos	exit;
+	t_pos	player1;
+	t_pos	exit1;
 	int		img_width;
 	int		img_height;
 	int     x;
@@ -39,10 +39,16 @@ typedef struct t_list
 	void	*img;
 	void    *mlx;
     void    *mlx_win;
+	char 	**map;
+	char 	*map1D;
 }   t_list;
 
-int	check_exist(char **map, int base);
-void    add_to_window(char **map, t_list *info);
+void check_valid_path(t_list *info);
+void    check_map_parsing(char  *map);
+void	check_path(t_list *info, int base);
+void	get_cordinates(t_list    *info);
+int		check_exist(char **map, int base);
+void	add_to_window(char **map, t_list *info);
 void    put_to_window(char **map, t_list *info, int i, int j);
 void    pointer_image(t_list    *info);
 int		calcul_height(int y,char **map);
@@ -58,6 +64,6 @@ void	check_duplicate(char *map);
 void	check_map(char *map);
 void	check_ifrectangular(char *map);
 int		newline_pos(char *s, int pos);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char *s, char c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 21:01:15 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/04 22:24:25 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:58:25 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void    pointer_image(t_list    *info)
     if (!info->player)
         exit (1);
     info->collect = mlx_xpm_file_to_image(info->mlx, "image/COINS.xpm", &info->img_width, &info->img_height);
-    if (!info->collect)
+    if (!info->collect) 
         exit (1);
     info->exit = mlx_xpm_file_to_image(info->mlx, "image/EXIT1.xpm", &info->img_width, &info->img_height);
     if (!info->exit)
