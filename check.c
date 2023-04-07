@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 22:09:37 by yochakib          #+#    #+#             */
-/*   Updated: 2023/03/27 16:16:17 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/07 22:59:27 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,33 +81,21 @@ void	check_map(char *map)
 	}
 }
 
-void	check_ifrectangular(char *map)
+void	check_ifrectangular(char **map_2D)
 {
-	int	i;
-	int	line_len;
-	int	max_line_len;
-
-	i = 0;
-	line_len = 0;
-	max_line_len = 0;
-	while (map[i])
+	int i = 0;
+	int len;
+	
+	len =my_strlen(map_2D[0]);
+	while (map_2D[i])
 	{
-		if (map[i] == '\n')
+		if (len != my_strlen(map_2D[i]))
 		{
-			if (line_len > max_line_len)
-				max_line_len = line_len;
-			line_len = 0;
+			ft_putstr_fd("Error : map not rectangular", 2);
+			exit (1);
 		}
-		else
-			line_len++;
 		i++;
-	}
-	if (max_line_len != line_len)
-	{
-		free(map);
-		ft_putstr_fd("Error : map not rectangular", 2);
-		exit (1);
-	}
+	}	
 }
 
 void	check_wall2(char *map)

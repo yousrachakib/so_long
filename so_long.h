@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:57 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/06 22:11:55 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/07 23:03:29 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ typedef struct t_list
 	char 	*map1D;
 }   t_list;
 
+void    move_up(t_list *info);
+void    move_down(t_list *info);
+void    move_left(t_list *info);
+int	key_code(int key_code, t_list *info);
+void    move_right(t_list *info);
 void check_valid_path(t_list *info);
 void    check_map_parsing(char  *map);
 void	check_path(t_list *info, int base);
@@ -62,7 +67,7 @@ int		checkerror(int ac, char **av);
 int		my_strlen(const char *s);
 void	check_duplicate(char *map);
 void	check_map(char *map);
-void	check_ifrectangular(char *map);
+void	check_ifrectangular(char **map_2D);
 int		newline_pos(char *s, int pos);
 char	**ft_split(char *s, char c);
 

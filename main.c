@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/06 22:16:12 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/07 23:04:24 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,16 @@ int	calcul_height(int y,char **map)
 	return (y);
 }
 
-int	key_code(int key_code)
+int	key_code(int key_code, t_list *info)
 {
-	printf("%d\n",key_code);
-	
+	if (key_code == 124 || key_code == 2)
+		move_right(info);
+	if (key_code == 123 || key_code == 0)
+		move_left(info);
+	if (key_code == 125 || key_code == 1)
+		move_down(info);
+	if (key_code == 126 || key_code == 13)
+		move_up(info);
 	return 0;
 }
 
@@ -117,6 +123,7 @@ int	main(int ac, char **av)
 	info->map1D =map;
 	info->map = ft_split(map, '\n');
 	map_2D = ft_split(map, '\n');
+	check_ifrectangular(map_2D);
 	check_valid_path(info);
 	creat_window(map_2D, info);
 }
