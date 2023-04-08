@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:18:07 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/07 22:58:09 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/08 20:25:34 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void    get_cordinates(t_list *info)
                 info->exit1.x = j;
                 info->exit1.x = i;
             }
+            if (info->map[i][j] == 'C')
+                info->coins_counter += 1;
             j++;
         }
         i++;
