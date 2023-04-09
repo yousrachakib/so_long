@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 22:39:53 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/09 20:48:37 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/09 22:23:59 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ void    move_w(t_list   *info)
         info->coins_counter -= 1;
     if (info->map[info->player1.y - 1][info->player1.x] == 'E' && info->coins_counter == 0)
     {
-        printf("You WIN");
+        printf("You WIN\n");
         mlx_destroy_window(info->mlx, info->mlx_win);
         exit (0);
     }
     info->map[info->player1.y - 1][info->player1.x] = 'P';
+    info->moves += 1;
+    printf(">>>>MOVE NUMBER :%d<<<<<<\n", info->moves);
     mlx_clear_window(info->mlx, info->mlx_win);
     info->player1.y -= 1;
     add_to_window(info);
@@ -33,11 +35,7 @@ void    move_w(t_list   *info)
 void    move_up(t_list *info)
 {
     if (info->map[info->player1.y - 1][info->player1.x] != '1')
-    {
         move_w(info);
-        info->moves += 1;
-        printf(">>>>MOVE NUMBER :%d<<<<<<\n", info->moves);       
-    }
 }
 
 void    move_s(t_list   *info)
@@ -49,11 +47,13 @@ void    move_s(t_list   *info)
         info->coins_counter -= 1;
     if (info->map[info->player1.y + 1][info->player1.x] == 'E' && info->coins_counter == 0)
     {
-        printf("You WIN");
+        printf("You WIN\n");
         mlx_destroy_window(info->mlx, info->mlx_win);
         exit (0);
     }
     info->map[info->player1.y + 1][info->player1.x] = 'P';
+    info->moves += 1;
+    printf(">>>>MOVE NUMBER :%d<<<<<<\n", info->moves); 
     mlx_clear_window(info->mlx, info->mlx_win);
     info->player1.y += 1;
     add_to_window(info);
@@ -61,9 +61,5 @@ void    move_s(t_list   *info)
 void    move_down(t_list *info)
 {
     if (info->map[info->player1.y + 1][info->player1.x] != '1')
-    {
-         move_s(info); 
-         info->moves += 1;
-         printf(">>>>MOVE NUMBER :%d<<<<<<\n", info->moves);    
-    }
+         move_s(info);
 }

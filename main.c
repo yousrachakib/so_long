@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/09 20:48:06 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/09 22:29:53 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int	key_code(int key_code, t_list *info)
 		move_down(info);
 	if (key_code == 126 || key_code == 13)
 		move_up(info);
+	if (key_code == 53)
+		quit(info);
 	return 0;
 }
 
@@ -75,7 +77,8 @@ void	creat_window(char **map, t_list *info)
 	info->mlx_win = mlx_new_window(info->mlx, info->x*50, info->y*50, "so_long");
 	pointer_image(info);
 	mlx_loop_hook(info->mlx , &add_to_window, info);
-	mlx_hook(info->mlx_win, 2, 1L, &key_code, info);
+	mlx_hook(info->mlx_win, 2, 0, &key_code, info);
+	mlx_hook(info->mlx_win, 17, 0, &quit, info);
 	mlx_loop(info->mlx);
 }
 int	checkerror(int ac, char **av)

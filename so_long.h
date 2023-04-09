@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:57 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/09 20:37:44 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/09 22:26:30 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct t_list
 	char 	*map1D;
 }   t_list;
 
+int	quit(t_list *info);
 int	my_free(char **res);
 void    move_up(t_list *info);
 void    move_down(t_list *info);
