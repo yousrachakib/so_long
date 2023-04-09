@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/08 21:04:10 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/09 20:28:46 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	key_code(int key_code, t_list *info)
 		move_down(info);
 	if (key_code == 126 || key_code == 13)
 		move_up(info);
+		
 	return 0;
 }
 
@@ -128,6 +129,8 @@ int	main(int ac, char **av)
 	map_2D = ft_split(map, '\n');
 	check_ifrectangular(map_2D);
 	check_valid_path(info);
-	
 	creat_window(map_2D, info);
+	my_free(info->map);
+	my_free(map_2D);
+	free(info->map1D);
 }

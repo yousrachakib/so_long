@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 21:16:03 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/08 21:17:49 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/09 20:00:00 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void    move_d(t_list   *info)
     if (info->map[info->player1.y][info->player1.x + 1] == 'E' && info->coins_counter == 0)
     {
         printf("You WIN");
+        mlx_destroy_window(info->mlx, info->mlx_win);
         exit (0);
     }
     info->map[info->player1.y][info->player1.x + 1] = 'P';
@@ -48,6 +49,7 @@ void    move_a(t_list   *info)
     if (info->map[info->player1.y][info->player1.x - 1] == 'E' && info->coins_counter == 0)
     {
         printf("You WIN");
+        mlx_destroy_window(info->mlx, info->mlx_win);
         exit (0);
     }
     info->map[info->player1.y][info->player1.x - 1] = 'P';

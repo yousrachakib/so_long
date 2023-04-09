@@ -9,6 +9,7 @@ SRC = check.c \
 	checkpath.c \
 	mv_right_left.c \
 	mv_up_down.c \
+	free.c \
 
 NAME = so_long
 CC = cc

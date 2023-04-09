@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 22:09:37 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/07 22:59:27 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/09 20:21:53 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	check_duplicate(char *map)
 	}
 	if (counter != 2)
 	{
+		free(map);
 		ft_putstr_fd("Error Map not valide\n", 2);
 		exit (1);
 	}
@@ -91,6 +92,7 @@ void	check_ifrectangular(char **map_2D)
 	{
 		if (len != my_strlen(map_2D[i]))
 		{
+			my_free(map_2D);
 			ft_putstr_fd("Error : map not rectangular", 2);
 			exit (1);
 		}

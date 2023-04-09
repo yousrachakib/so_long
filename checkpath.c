@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 22:42:56 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/06 17:37:08 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/09 20:25:01 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,29 +53,20 @@ void	check_path(t_list *info, int base)
 	x = info->player1.x;
 	y = info->player1.y;
 	map = ft_split(info->map1D, '\n');
-	floodfill(map, y, x, base);
-	// while (info->map[i])
-	// {
-	// 	j = 0;
-	// 	while(info->map[i][j])
-	// 	{
-	// 		printf("%c",info->map[i][j]);
-	// 		j++;
-	// 	}
-	// 	printf("\n");
-	// 	i++;
-	// }
-	
+	floodfill(map, y, x, base);	
 	if (base == 'C')
 		if (check_exist(map, base))
 		{
+			my_free(map);
         	ft_putstr_fd("ERROR!\nThere is no valid path to catch all collectibles.\n", 2);
             exit (1);
         }
 	if (base == 'E')
 		if (check_exist(map, base))
 		{
+			my_free(map);
         	ft_putstr_fd("ERROR!\nThere is no valid path to go the exit.\n", 2);
             exit (1);
         }
+	my_free(map);
 }
