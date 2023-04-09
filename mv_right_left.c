@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 21:16:03 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/09 20:00:00 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/09 20:48:19 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ void    move_right(t_list *info)
 {
     if (info->map[info->player1.y][info->player1.x + 1] != '1')
     {
-         move_d(info);       
+        move_d(info);
+        info->moves += 1;
+        printf(">>>>MOVE NUMBER :%d<<<<<<\n", info->moves);    
     }
 }
 
@@ -62,6 +64,8 @@ void    move_left(t_list *info)
 {
     if (info->map[info->player1.y][info->player1.x - 1] != '1')
     {
-        move_a(info);       
+        move_a(info); 
+        info->moves += 1; 
+        printf(">>>>MOVE NUMBER :%d<<<<<<\n", info->moves);   
     }
 }

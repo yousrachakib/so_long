@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/09 20:28:46 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/09 20:48:06 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	init_args(t_list *info)
 	info->coins_counter = 0;
 	info->img_height = 0;
 	info->img_width = 0;
+	info->moves = 0;
 	info->x = 0;
 	info->y = 0;
 	info->exit = NULL;
@@ -63,7 +64,6 @@ int	key_code(int key_code, t_list *info)
 		move_down(info);
 	if (key_code == 126 || key_code == 13)
 		move_up(info);
-		
 	return 0;
 }
 

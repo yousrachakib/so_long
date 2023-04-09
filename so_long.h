@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:57 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/09 20:16:19 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/09 20:37:44 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct t_list
 {
 	t_pos	player1;
 	t_pos	exit1;
+	int		moves;
 	int		coins_counter;
 	int		img_width;
 	int		img_height;
