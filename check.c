@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 22:09:37 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/09 20:21:53 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/10 18:53:18 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,11 @@ void	check_map(char *map)
 
 void	check_ifrectangular(char **map_2D)
 {
-	int i = 0;
-	int len;
-	
-	len =my_strlen(map_2D[0]);
+	int	i;
+	int	len;
+
+	i = 0;
+	len = my_strlen(map_2D[0]);
 	while (map_2D[i])
 	{
 		if (len != my_strlen(map_2D[i]))
@@ -103,11 +104,9 @@ void	check_ifrectangular(char **map_2D)
 void	check_wall2(char *map)
 {
 	int	pos;
-	int	i;
 	int	start;
 
 	start = 0;
-	i = 0;
 	while (*map)
 	{
 		pos = newline_pos(map, start);

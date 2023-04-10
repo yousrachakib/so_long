@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:57 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/09 22:26:30 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/10 20:02:08 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct t_list
 	char 	*map1D;
 }   t_list;
 
+void	check_emptyline(t_list *info);
 int	quit(t_list *info);
 int	my_free(char **res);
 void    move_up(t_list *info);
@@ -53,7 +54,7 @@ void    move_left(t_list *info);
 int	key_code(int key_code, t_list *info);
 void    move_right(t_list *info);
 void check_valid_path(t_list *info);
-void    check_map_parsing(char  *map);
+void    check_map_parsing(t_list *info);
 void	check_path(t_list *info, int base);
 void	get_cordinates(t_list    *info);
 int		check_exist(char **map, int base);
@@ -65,10 +66,11 @@ int		calcul_width(int x,char **map);
 void	creat_window(char **map, t_list *info);
 void	check_elements(char *map);
 void	check_wall2(char *map);
-void	check_wall(char	*map);
+void	check_wall(char	**map);
 void	ft_putstr_fd(char *s, int fd);
 int		checkerror(int ac, char **av);
-int		my_strlen(const char *s);
+int		my_strlen(char *s);
+int tab_len(char **tab);
 void	check_duplicate(char *map);
 void	check_map(char *map);
 void	check_ifrectangular(char **map_2D);

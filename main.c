@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/09 22:29:53 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/10 20:17:24 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,13 +123,21 @@ int	main(int ac, char **av)
 		map = ft_strjoin(map, line);
 		free(line);
 		line = get_next_line(fd);
+		if (!line)
+			break ;
+		if (my_strlen(line) <= 1)
+		{
+			printf("ERROR empty line\n");
+			exit (1);
+		}
 	}
 	info = malloc(sizeof(t_list));
 	init_args(info);
-	check_map_parsing(map);
-	info->map1D =map;
+	info->map1D = map;
 	info->map = ft_split(map, '\n');
+	check_map_parsing(info);
 	map_2D = ft_split(map, '\n');
+	printf("--9--\n");
 	check_ifrectangular(map_2D);
 	check_valid_path(info);
 	creat_window(map_2D, info);

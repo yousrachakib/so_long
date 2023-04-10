@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:18:07 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/08 20:25:34 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/10 20:14:44 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,19 @@ void    get_cordinates(t_list *info)
     }
 }
 
-void    check_map_parsing(char  *map)
+void    check_map_parsing(t_list *info)
 {
-    check_elements(map);
-	check_map(map);
-	check_duplicate(map);
-	check_wall(map);
+    // check_emptyline(info);
+    check_elements(info->map1D);
+	check_map(info->map1D);
+	check_duplicate(info->map1D);
+	check_wall(info->map);
 }
 
 void check_valid_path(t_list *info)
 {
     get_cordinates(info);
+    printf("--8--\n");
 	check_path(info, 'C');
 	check_path(info, 'E');
 }
