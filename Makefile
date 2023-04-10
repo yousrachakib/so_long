@@ -9,7 +9,9 @@ SRC = check.c \
 	checkpath.c \
 	mv_right_left.c \
 	mv_up_down.c \
+	creatwindow.c \
 	free.c \
+	check_wall.c \
 
 NAME = so_long
 CC = cc

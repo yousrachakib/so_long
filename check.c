@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 22:09:37 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/10 18:53:18 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/10 22:43:33 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	check_ifrectangular(char **map_2D)
 	len = my_strlen(map_2D[0]);
 	while (map_2D[i])
 	{
+		printf("%s\n",map_2D[i]);
 		if (len != my_strlen(map_2D[i]))
 		{
 			my_free(map_2D);

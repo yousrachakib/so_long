@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 22:42:56 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/10 18:59:32 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:40:54 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,31 +46,28 @@ int	check_exist(char **map, int base)
 
 void	check_path(t_list *info, int base)
 {
-	int		x;
-	int		y;
-	char **map;
+	char	**map;
 
-	x = info->player1.x;
-	y = info->player1.y;
-	map = ft_split(info->map1D, '\n');
-	floodfill(map, y, x, base);	
+	map = ft_split(info->map1d, '\n');
+	floodfill(map, info->player1.y, info->player1.x, base);
 	if (base == 'C')
 	{
 		if (check_exist(map, base))
 		{
 			my_free(map);
-        	ft_putstr_fd("ERROR!\nThere is no valid path to catch all collectibles.\n", 2);
-            exit (1);
-        }
+			ft_putstr_fd("ERROR!\nThere is no valid path \
+			to catch all collectibles.\n", 2);
+			exit (1);
+		}
 	}
 	if (base == 'E')
 	{
 		if (check_exist(map, base))
 		{
 			my_free(map);
-        	ft_putstr_fd("ERROR!\nThere is no valid path to go the exit.\n", 2);
-            exit (1);
-        }
+			ft_putstr_fd("ERROR!\nThere is no valid path to go the exit.\n", 2);
+			exit (1);
+		}
 	}
 	my_free(map);
 }
