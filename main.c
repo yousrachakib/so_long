@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 20:34:21 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/11 18:13:57 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/11 18:30:58 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ int	main(int ac, char **av)
 			printf("ERROR empty line\n");
 			exit (1);
 		}
+	}
+	if(map[my_strlen(map) - 1] == '\n')
+	{
+		printf("error");
+		exit(1);
 	}
 	part2(info, map);
 }
