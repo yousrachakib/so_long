@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:19:57 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/10 22:34:53 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/11 20:23:21 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ typedef struct t_list
 	char	*map1d;
 }	t_list;
 
+void	ft_putchar_fd(char c, int fd);
+int		ft_strcmp(char *s1, char *s2);
+void	ft_putnbr_fd(int n, int fd);
 void	init_args(t_list *info);
 void	check_emptyline(t_list *info);
 int		quit(t_list *info);

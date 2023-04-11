@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 20:34:21 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/11 18:30:58 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/11 19:58:41 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void	part2(t_list *info, char *map)
 {
 	char	**map2d;
 
+	if (map[my_strlen(map) - 1] == '\n')
+	{
+		ft_putstr_fd("Error\nEmpty line located at end of map!", 2);
+		exit(1);
+	}
 	info = malloc(sizeof(t_list));
 	init_args(info);
 	info->map1d = map;
@@ -31,6 +36,15 @@ void	part2(t_list *info, char *map)
 	free(info->map1d);
 }
 
+void	lineserror(char *line)
+{
+	if (!ft_strcmp(line, "\n"))
+	{
+		ft_putstr_fd("Error\nEmpty line located at beginning of map!", 2);
+		exit(1);
+	}
+}
+
 int	main(int ac, char **av)
 {
 	char	*line;
@@ -42,11 +56,7 @@ int	main(int ac, char **av)
 	map = ft_strdup("");
 	fd = checkerror(ac, av);
 	line = get_next_line(fd);
-	if (!strcmp(line, "\n")) // change to ft_strcmp
-	{
-		printf("errrrrrrrrrrrror\n");
-		exit(1);
-	}
+	lineserror(line);
 	while (line)
 	{
 		map = ft_strjoin(map, line);
@@ -56,14 +66,9 @@ int	main(int ac, char **av)
 			break ;
 		if (my_strlen(line) <= 1)
 		{
-			printf("ERROR empty line\n");
+			ft_putstr_fd("ERROR\n empty line", 2);
 			exit (1);
 		}
-	}
-	if(map[my_strlen(map) - 1] == '\n')
-	{
-		printf("error");
-		exit(1);
 	}
 	part2(info, map);
 }

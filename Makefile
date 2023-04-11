@@ -12,6 +12,7 @@ SRC = check.c \
 	creatwindow.c \
 	free.c \
 	check_wall.c \
+	write.c \
 
 NAME = so_long
 CC = cc

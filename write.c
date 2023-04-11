@@ -1,45 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   itoa.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 20:13:44 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/11 20:25:03 by yochakib         ###   ########.fr       */
+/*   Created: 2023/04/11 20:09:38 by yochakib          #+#    #+#             */
+/*   Updated: 2023/04/11 20:20:11 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	my_free(char **res)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (res[i])
+	if (0 <= n && n <= 9)
 	{
-		free(res[i++]);
+		ft_putchar_fd((n + '0'), fd);
 	}
-	free(res);
-	return (0);
+	else if (n == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", fd);
+	}
+	else if (n > 9)
+	{
+		ft_putnbr_fd((n / 10), fd);
+		ft_putnbr_fd((n % 10), fd);
+	}
+	else
+	{
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd((n * -1), fd);
+	}
 }
 
-int	quit(t_list *info)
-{
-	mlx_destroy_window(info->mlx, info->mlx_win);
-	exit(0);
-	return (0);
-}
-
-int	tab_len(char **tab)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (tab[i])
+	while (s1[i] || s2[i])
 	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	return (i);
+	return (0);
 }

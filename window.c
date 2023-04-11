@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 21:01:15 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/10 20:33:16 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/11 18:52:14 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,9 @@ int	checkerror(int ac, char **av)
 		ft_putstr_fd("Error file not opened\n", 2);
 		exit (1);
 	}
-	i = my_strlen(av[1]) - 1;
-	if (i < 4 || av[1][i] != 'r'
-		|| av[1][i -1] != 'e' || av[1][i - 2] != 'b' || av[1][i - 3] != '.')
+	i = my_strlen(av[1]);
+	if (i <= 4 && (av[1][i] != 'r'
+		|| av[1][i -1] != 'e' || av[1][i - 2] != 'b' || av[1][i - 3] != '.'))
 	{
 		ft_putstr_fd("Error wrong filetype\n", 2);
 		exit (1);

@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 21:44:59 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/10 22:05:41 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/11 20:00:47 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	part1(t_list *info)
 	{
 		if (info->map[0][i] != '1')
 		{
-			printf("ERROOOOR 1st wall\n");
+			ft_putstr_fd("ERROR 1st wall\n", 2);
 			exit (1);
 		}
 		i++;
@@ -39,7 +39,7 @@ void	part02(t_list *info)
 	{
 		if (info->map[len][i] != '1')
 		{
-			printf("ERROOOOR last wall\n");
+			ft_putstr_fd("ERROR last wall\n", 2);
 			exit (1);
 		}
 		i++;
@@ -57,7 +57,7 @@ void	part3(t_list *info)
 	{
 		if (info->map[i][0] != '1')
 		{
-			printf("ERROOOOR bord left\n");
+			ft_putstr_fd("ERROR bord left\n", 2);
 			exit (1);
 		}
 		i++;
@@ -80,7 +80,7 @@ void	check_wall(t_list *info)
 		len2 = my_strlen(info->map[i]) - 1;
 		if (info->map[i][len2] != '1')
 		{
-			printf("ERROOOOR bord right\n");
+			ft_putstr_fd("ERROR bord right\n", 2);
 			exit (1);
 		}
 		i++;
