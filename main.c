@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 20:34:21 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/10 22:43:17 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/11 18:13:57 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,22 @@ int	main(int ac, char **av)
 	map = ft_strdup("");
 	fd = checkerror(ac, av);
 	line = get_next_line(fd);
+	if (!strcmp(line, "\n")) // change to ft_strcmp
+	{
+		printf("errrrrrrrrrrrror\n");
+		exit(1);
+	}
 	while (line)
 	{
 		map = ft_strjoin(map, line);
 		free(line);
 		line = get_next_line(fd);
-		// printf("%s\n", line);
 		if (!line)
 			break ;
 		if (my_strlen(line) <= 1)
 		{
 			printf("ERROR empty line\n");
 			exit (1);
-		}
-		if (!strcmp(line, "\n")) // change to ft_strcmp
-		{
-			printf("errrrrrrrrrrrror\n");
-			exit(1);
 		}
 	}
 	part2(info, map);
