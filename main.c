@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 20:34:21 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/11 19:58:41 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/12 22:10:14 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,15 @@ void	lineserror(char *line)
 	}
 }
 
+void	protection(char *line)
+{
+	if (!line)
+	{
+		ft_putstr_fd("ERROR Empty file!\n", 2);
+		exit (1);
+	}
+}
+
 int	main(int ac, char **av)
 {
 	char	*line;
@@ -56,6 +65,7 @@ int	main(int ac, char **av)
 	map = ft_strdup("");
 	fd = checkerror(ac, av);
 	line = get_next_line(fd);
+	protection(line);
 	lineserror(line);
 	while (line)
 	{
