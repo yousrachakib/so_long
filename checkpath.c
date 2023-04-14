@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 22:42:56 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/10 21:40:54 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/13 20:12:54 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	check_path(t_list *info, int base)
 		if (check_exist(map, base))
 		{
 			my_free(map);
-			ft_putstr_fd("ERROR!\nThere is no valid path \
+			ft_putstr_fd("ERROR!There is no valid path \
 			to catch all collectibles.\n", 2);
 			exit (1);
 		}
@@ -65,7 +65,7 @@ void	check_path(t_list *info, int base)
 		if (check_exist(map, base))
 		{
 			my_free(map);
-			ft_putstr_fd("ERROR!\nThere is no valid path to go the exit.\n", 2);
+			ft_putstr_fd("ERROR!There is no valid path to go the exit.\n", 2);
 			exit (1);
 		}
 	}

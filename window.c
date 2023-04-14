@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 21:01:15 by yochakib          #+#    #+#             */
-/*   Updated: 2023/04/11 18:52:14 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/04/13 20:27:18 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,20 @@ void	pointer_image(t_list	*info)
 {
 	info->space = mlx_xpm_file_to_image(info->mlx, "image/SPACE.xpm" \
 	, &info->img_width, &info->img_height);
-	if (!info->space)
-		exit (1);
 	info->player = mlx_xpm_file_to_image(info->mlx, "image/PLAYER.xpm" \
 	, &info->img_width, &info->img_height);
-	if (!info->player)
-		exit (1);
 	info->collect = mlx_xpm_file_to_image(info->mlx, "image/COINS.xpm" \
 	, &info->img_width, &info->img_height);
-	if (!info->collect)
-		exit (1);
 	info->exit = mlx_xpm_file_to_image(info->mlx, "image/EXIT1.xpm" \
 	, &info->img_width, &info->img_height);
-	if (!info->exit)
-		exit (1);
 	info->wall = mlx_xpm_file_to_image(info->mlx, "image/WALL.xpm" \
 	, &info->img_width, &info->img_height);
-	if (!info->wall)
+	if (!info->wall || !info->space || !info->player || !info->collect || \
+		!info->exit)
+	{
+		ft_putstr_fd("Error check XPM files", 2);
 		exit (1);
+	}
 }
 
 int	add_to_window(t_list *info)
